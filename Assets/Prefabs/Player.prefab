@@ -216,6 +216,7 @@ MonoBehaviour:
   pm: {fileID: 2573065123230960017}
   projectile: {fileID: 5658779326721531478, guid: a12d66df79b696742b4cfefe48f49a21, type: 3}
   trackPoint: {fileID: 8009038481877797145}
+  cooldown: 1
 --- !u!1 &8436268978932894418
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +448,7 @@ MonoBehaviour:
   playerMovement: {fileID: 2573065123230960017}
   runSpeed: 40
   jump: 0
+  gameOverScreen: {fileID: 530065880017397906, guid: e255c0e42d77802488a3d6ce88206345, type: 3}
 --- !u!1 &8633879575303393424
 GameObject:
   m_ObjectHideFlags: 0

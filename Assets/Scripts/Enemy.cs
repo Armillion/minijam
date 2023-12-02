@@ -26,7 +26,7 @@ public class Enemy : Entity
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = new Vector2(0,rb.velocity.y);
         }
 
         currentWidth += direction * speed * Time.deltaTime;
@@ -42,6 +42,12 @@ public class Enemy : Entity
     {
         base.freeze();
         attackChecker.enabled = false;
+    }
+
+    public override void onFall()
+    {
+        base.onFall();
+        Destroy(gameObject);
     }
 
     private void Flip()

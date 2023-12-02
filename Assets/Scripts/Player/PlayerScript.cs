@@ -15,6 +15,8 @@ public class PlayerScript : Entity
     float horizontal = 0f;
     public bool jump = false;
 
+    public GameObject gameOverScreen;
+
     public override void onHit()
     {
         base.onHit();
@@ -31,7 +33,8 @@ public class PlayerScript : Entity
     public override void onFall()
     {
         base.onFall();
-        Debug.Log("Game Over");
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     void Update()
