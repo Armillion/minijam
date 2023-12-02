@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;
 	[SerializeField] private GameObject model;
+	[SerializeField] private GameObject pistol;
+	[SerializeField] private Transform rightFacingAttachPoint;
+	[SerializeField] private Transform leftFacingAttachPoint;
 
     public int maxNrJumps = 0;
     public int nrJumps;
@@ -184,14 +187,22 @@ public class PlayerMovement : MonoBehaviour
 		m_Grounded = false;
         Vector3 targetVelocity = new Vector2(force, 10f);
 		m_Rigidbody2D.velocity = targetVelocity;
-    }
+	}
 
-    private void Flip()
+	private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
 
-		// Multiply the player's x local scale by -1.
+		if (m_FacingRight)
+		{
+			pistol.transform.position = rightFacingAttachPoint.position;
+		}
+		else
+		{
+            pistol.transform.position = leftFacingAttachPoint.position;
+        }
+
 		Vector3 theScale = model.transform.localScale;
 		theScale.x *= -1;
 		model.transform.localScale = theScale;
