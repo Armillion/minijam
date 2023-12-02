@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField, Space, Min(0.1f)]
     float startCooldown = 5f;
 
+    [SerializeField, Space, Min(0f)]
+    float scalingFactor = .01f;
+
     public float Timer { get; set; }
     
     float cooldown = 0f;
@@ -50,6 +53,8 @@ public class GameManager : MonoBehaviour {
     void Update() {
         Timer += Time.deltaTime;
         cooldown -= Time.deltaTime;
+        gameSpeed += scalingFactor * Time.deltaTime;
+        Time.timeScale = gameSpeed;
         TimeSpan timeSpan = TimeSpan.FromSeconds(Timer);
         timerText.text = timeSpan.ToString(@"mm\:ss");
     }
@@ -66,7 +71,9 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = timeSlowFactor;
         timerText.color = Color.cyan;
         icyImageOverlay.SetActive(true);
+
         yield return new WaitForSecondsRealtime(timeSlowDuration);
+        
         isTimeSlowed = false;
         Time.timeScale = gameSpeed;
         timerText.color = Color.black;

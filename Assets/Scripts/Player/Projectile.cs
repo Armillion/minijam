@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
             en.freeze();
         }
 
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") && !other.CompareTag("Platform"))
             Destroy(gameObject);
     }
 }
