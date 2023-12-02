@@ -28,6 +28,8 @@ public class WorldScroller : MonoBehaviour {
     [SerializeField]
     List<Transform> platforms = new();
 
+    List<Transform> prevPlatforms = new();
+
     float platformSpawnTimer = 1f;
 
     float platformsMargin = 0.5f;
@@ -104,27 +106,34 @@ public class WorldScroller : MonoBehaviour {
         return availableSpace;
     }
 
-    Transform SpawnPlatform(List<FloatRange> availableSpace, out float platformWidth) {
-        var platform = Instantiate(platformPrefab, transform);
+    Transform SpawnPlatform(List<FloatRange> availableSpace, out float platformWidth, bool spawnSafe = false) {
+        var platformTransform = Instantiate(platformPrefab, transform);
         FloatRange randomRange = availableSpace[Random.Range(0, availableSpace.Count)];
         platformWidth = platformWidthRange.RandomValueInRange;
 
-        platform.localScale = new Vector3(
-            platformWidth - platformsMargin * 2f,
-            platform.localScale.y,
-            platform.localScale.z
-        );
+        Platform platform = platformTransform.GetComponent<Platform>();
+        platform.Size = new Vector2(platformWidth - platformsMargin * 2f, platform.Size.y);
 
         randomRange.min += platformWidth * 0.5f;
         randomRange.max -= platformWidth * 0.5f;
 
-        platform.localPosition = new Vector3(
+        platformTransform.localPosition = new Vector3(
             randomRange.RandomValueInRange,
             bounds.y,
-            platform.position.z
+            platformTransform.position.z
         );
 
-        platforms.Add(platform);
-        return platform;
+        if (spawnSafe) {
+            while (!prevPlatforms.Any(p => Vector3.Distance(p.position, platformTransform.position) < 6f)) {
+                platformTransform.localPosition = new Vector3(
+                    randomRange.RandomValueInRange,
+                    bounds.y,
+                    platformTransform.position.z
+                );
+            }
+        }
+
+        platforms.Add(platformTransform);
+        return platformTransform;
     }
 }
