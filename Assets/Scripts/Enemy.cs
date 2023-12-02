@@ -19,15 +19,13 @@ public class Enemy : Entity
 
     private void FixedUpdate()
     {
-        if (!isFrozen)
+        if (isFrozen)
         {
-            Vector2 vel = new Vector2(direction * speed * Time.deltaTime, rb.velocity.y);
-            rb.velocity = vel;
+            return;
         }
-        else
-        {
-            rb.velocity = new Vector2(0,rb.velocity.y);
-        }
+
+        Vector2 vel = new Vector2(direction * speed * Time.deltaTime, rb.velocity.y);
+        rb.velocity = vel;
 
         currentWidth += direction * speed * Time.deltaTime;
 
@@ -42,6 +40,9 @@ public class Enemy : Entity
     {
         base.freeze();
         attackChecker.enabled = false;
+
+        if (TryGetComponent(out SpriteRenderer sr))
+            sr.color = Color.cyan;
     }
 
     public override void onFall()
@@ -55,5 +56,16 @@ public class Enemy : Entity
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public override void onHit(Vector3 force)
+    {
+        if (!isFrozen)
+        {
+            return;
+        }
+
+        base.onHit(force);
+        rb.AddForce(force, ForceMode2D.Impulse);
     }
 }

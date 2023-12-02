@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 5279330281425488497}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +355,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -445,6 +445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   injuries: 0
+  attackRange: {x: 0, y: 0}
+  hammerForce: 10
   playerMovement: {fileID: 2573065123230960017}
   runSpeed: 40
   jump: 0
