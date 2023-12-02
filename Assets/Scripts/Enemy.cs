@@ -87,6 +87,7 @@ public class Enemy : Entity
         base.onDeath();
         var iceCubes = Instantiate(iceCubesPrefab, transform.position, Quaternion.identity);
         iceCubes.localScale = transform.localScale;
+        GameManager.Instance.Timer += 3f;
         Destroy(gameObject);
     }
 }

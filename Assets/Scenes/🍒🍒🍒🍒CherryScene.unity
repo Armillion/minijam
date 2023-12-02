@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,12 +157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed3062bd86a93a4ebc0a5a2d13036c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldScroller: {fileID: 778576766}
   timerText: {fileID: 1939413391}
   gameSpeed: 1
   timeSlowFactor: 0.5
   timeSlowDuration: 5
   timeSlowCooldown: 1
   isTimeSlowed: 0
+  startCooldown: 5
 --- !u!4 &194409006
 Transform:
   m_ObjectHideFlags: 0
@@ -1277,6 +1279,90 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8181054555079775649, guid: db05fa9a4c51e4645b23cb857c23b601, type: 3}
   m_PrefabInstance: {fileID: 1371270870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1458354218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1458354220}
+  - component: {fileID: 1458354219}
+  m_Layer: 0
+  m_Name: bg_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1458354219
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458354218}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 661ab2652ddf7754db2288f260d4e710, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 19.2, y: 10.8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1458354220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458354218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.09, y: 1.09, z: 1.09}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582837869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1498,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582837870}
     m_Modifications:
+    - target: {fileID: 5382016039845024004, guid: 2adc038b06abefb42a709acf9c8c9d0f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5435954231777384970, guid: 2adc038b06abefb42a709acf9c8c9d0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -1584,6 +1674,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1582837870}
     m_Modifications:
+    - target: {fileID: 5382016039845024004, guid: 2adc038b06abefb42a709acf9c8c9d0f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5435954231777384970, guid: 2adc038b06abefb42a709acf9c8c9d0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -1740,3 +1834,4 @@ SceneRoots:
   - {fileID: 1582837870}
   - {fileID: 346963454}
   - {fileID: 354035494}
+  - {fileID: 1458354220}

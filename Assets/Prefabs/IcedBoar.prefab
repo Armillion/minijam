@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8855911058731555334}
   - component: {fileID: 4707203585901321008}
   - component: {fileID: 1126547295519881582}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: boar_ice_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2058230926212283690}
   - component: {fileID: 6349951527095259864}
   - component: {fileID: 7340826997331532561}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: boar_ice_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 6754316299387620718}
   - component: {fileID: 5011133877326892752}
   - component: {fileID: 839430644190482488}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: boar_ice_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4795012992489809308}
   - component: {fileID: 1276005260093967570}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: IcedBoar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 2469341253936032191}
   - component: {fileID: 5490945741548707554}
   - component: {fileID: 3302483188190671595}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: boar_ice_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
