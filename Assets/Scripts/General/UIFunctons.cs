@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIFunctons : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseMenu;
 
     public void MainMenu()
     {
@@ -19,5 +20,11 @@ public class UIFunctons : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
     }
 }
