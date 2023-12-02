@@ -22,12 +22,13 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("aaaaaaaa");
-        Entity en = other.gameObject.GetComponent<Entity>();
-        if (en != null)
+        // Debug.Log("aaaaaaaa");
+        if (other.gameObject.TryGetComponent<Entity>(out var en))
         {
             en.freeze();
         }
-        Destroy(gameObject);
+
+        if (!other.CompareTag("Player"))
+            Destroy(gameObject);
     }
 }
