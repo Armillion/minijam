@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class PistolRotate : MonoBehaviour
 {
     private Camera cam;
+    public PlayerMovement pm;
 
     public GameObject projectile;
     public Transform trackPoint;
@@ -27,16 +28,16 @@ public class PistolRotate : MonoBehaviour
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
+       
         //shooting
-        if(Input.GetButton("Fire"))
+        if(Input.GetButton("Fire1"))
         {
-
+            Shoot();
         }
     }
 
     void Shoot()
     {
-        Instantiate(projectile, transform.position, transform.rotation);
+        Instantiate(projectile, trackPoint.position, transform.rotation);
     }
 }
