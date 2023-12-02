@@ -41,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float knockbackTimer = 0f;
 	[SerializeField] private bool isKnockedback = false;
 
+	[SerializeField] private Animator legAnimator;
+	[SerializeField] private Animator bodyAnimator;
+
 	private void Start()
     {
 		nrJumps = maxNrJumps;
@@ -93,8 +96,22 @@ public class PlayerMovement : MonoBehaviour
                 knockbackTimer = 0f;
             }
         }
+
+		AnimationCheck();
 	}
 
+	void AnimationCheck()
+	{
+		if(m_Rigidbody2D.velocity.x > 0)
+		{
+			legAnimator.SetBool("isRunning",true);
+		}
+		else
+		{
+            legAnimator.SetBool("isRunning", false);
+        }
+		legAnimator.SetBool("isFalling", !m_Grounded);
+	}
 
 	public void Move(float move, bool crouch, bool jump)
 	{
