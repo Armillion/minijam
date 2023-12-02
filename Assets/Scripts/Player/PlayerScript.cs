@@ -71,13 +71,14 @@ public class PlayerScript : Entity
 
     void Melee()
     {
-        Debug.Log("Melee");
-        var colliders = Physics2D.OverlapBoxAll(transform.position + (playerMovement.m_FacingRight ? 1f : -1f) * new Vector3(attackRange.x * 0.5f, 0f, 0f), attackRange, 0f, LayerMask.GetMask("Enemy"));
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        bool facingRight = mousePos.x > objectPos.x;
+
+        var colliders = Physics2D.OverlapBoxAll(transform.position + (facingRight ? 1f : -1f) * new Vector3(attackRange.x * 0.5f, 0f, 0f), attackRange, 0f, LayerMask.GetMask("Enemy"));
         
         foreach (var collider in colliders)
         {
-            Debug.Log($"Hit: {collider.gameObject.name}");
-
             if (collider.gameObject.TryGetComponent<Entity>(out var en))
             {
                 Vector3 dir = en.transform.position - transform.position;
@@ -89,8 +90,12 @@ public class PlayerScript : Entity
 
     void OnDrawGizmosSelected()
     {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        bool facingRight = mousePos.x > objectPos.x;
+        
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + (playerMovement.m_FacingRight ? 1f : -1f) * new Vector3(attackRange.x * 0.5f, 0f, 0f), attackRange);
+        Gizmos.DrawWireCube(transform.position + (facingRight ? 1f : -1f) * new Vector3(attackRange.x * 0.5f, 0f, 0f), attackRange);
     }
 
     private void Pause()
