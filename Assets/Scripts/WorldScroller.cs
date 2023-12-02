@@ -6,8 +6,6 @@ using UnityEngine;
 public class WorldScroller : MonoBehaviour {
     public static WorldScroller Instance { get; private set; }
 
-    public static float GameSpeed { get; private set; } = 1f;
-
     [SerializeField]
     Transform platformPrefab;
 
@@ -34,11 +32,11 @@ public class WorldScroller : MonoBehaviour {
     }
 
     void Update() {
-        platformSpawnTimer += Time.deltaTime * platformSpawnInterval * GameSpeed;
+        platformSpawnTimer += Time.deltaTime * platformSpawnInterval * GameManager.GameSpeed;
 
         while (platformSpawnTimer >= 1f) {
             platformSpawnTimer -= 1f;
-            int platfomsToSpawn = Random.Range(1, 3);
+            int platfomsToSpawn = Random.Range(1, 4);
             List<FloatRange> availableSpace = new() { new FloatRange(-bounds.x, bounds.x) };
 
             for (int i = 0; i < platfomsToSpawn; i++) {
@@ -46,11 +44,8 @@ public class WorldScroller : MonoBehaviour {
                 FloatRange randomRange = availableSpace[Random.Range(0, availableSpace.Count)];
                 float platformWidth = platformWidthRange.RandomValueInRange;
 
-                if (platformWidth > randomRange.max - randomRange.min)
-                    platformWidth = randomRange.max - randomRange.min;
-
                 platform.localScale = new Vector3(
-                    platformWidth,
+                    platformWidth - platformsMargin * 2f,
                     platform.localScale.y,
                     platform.localScale.z
                 );
@@ -63,6 +58,8 @@ public class WorldScroller : MonoBehaviour {
                     bounds.y,
                     platform.position.z
                 );
+
+                platforms.Add(platform);
 
                 availableSpace = availableSpace
                     .SelectMany(space => {
@@ -85,19 +82,26 @@ public class WorldScroller : MonoBehaviour {
                         else
                             return new FloatRange[0];
                     })
-                    .ToList();
+                    .Where(space => space.max - space.min > platformWidth + platformsMargin * 2f)
+                    .ToList();     
 
-                platforms.Add(platform);
+                if (availableSpace.Count == 0)
+                    break;
             }
         }
 
-        foreach (var platform in platforms) {
-            platform.position += GameSpeed * Time.deltaTime * Vector3.down;
+        List<Transform> platformsToRemove = new();
 
-            if (platform.position.y < -bounds.y - platform.localScale.y * 0.5f) {
-                platforms.Remove(platform);
-                Destroy(platform.gameObject);
-            }
+        foreach (var platform in platforms) {
+            platform.position += GameManager.GameSpeed * Time.deltaTime * Vector3.down;
+
+            if (platform.position.y < -bounds.y - platform.localScale.y * 0.5f)
+                platformsToRemove.Add(platform);
+        }
+
+        foreach (var platform in platformsToRemove) {
+            platforms.Remove(platform);
+            Destroy(platform.gameObject);
         }
     }
 }
