@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     TextMeshProUGUI timerText;
+
+    [SerializeField]
+    GameObject icyImageOverlay;
 
     [SerializeField, Range(0f, 10f)]
     float gameSpeed = 1f;
@@ -61,11 +65,13 @@ public class GameManager : MonoBehaviour {
         isTimeSlowed = true;
         Time.timeScale = timeSlowFactor;
         timerText.color = Color.cyan;
+        icyImageOverlay.SetActive(true);
         yield return new WaitForSecondsRealtime(timeSlowDuration);
         isTimeSlowed = false;
         Time.timeScale = gameSpeed;
         timerText.color = Color.black;
         cooldown = timeSlowDuration;
+        icyImageOverlay.SetActive(false);
     }
 
     IEnumerator StartCooldown() {
