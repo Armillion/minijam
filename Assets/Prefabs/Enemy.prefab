@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7210802394704106134}
   - component: {fileID: 7797343873389256071}
   - component: {fileID: 4691329714229666100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,6 +178,8 @@ MonoBehaviour:
   platformWidth: 0
   speed: 50
   attackChecker: {fileID: 7210802394704106134}
+  explosionTreshold: 5
+  iceCubesPrefab: {fileID: 4795012992489809308, guid: 6e22463f307301845b6a0e4536477bca, type: 3}
 --- !u!58 &7210802394704106134
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -27,4 +27,9 @@ public class Entity : MonoBehaviour
     {
         // determines what happens when we fall off the world
     }
+
+    public virtual void onDeath()
+    {
+        // determines what happens when we die
+    }
 }

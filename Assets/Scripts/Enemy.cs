@@ -12,6 +12,9 @@ public class Enemy : Entity
     private Rigidbody2D rb;
 
     public Collider2D attackChecker;
+    [SerializeField] float explosionTreshold = 5f;
+    [SerializeField] Transform iceCubesPrefab;
+    float prevVelMagnitude;
 
     private Animator animator;
 
@@ -25,6 +28,12 @@ public class Enemy : Entity
     {
         if (isFrozen)
         {
+            float delta = prevVelMagnitude - rb.velocity.magnitude;
+
+            if (delta > explosionTreshold)
+                onDeath();
+
+            prevVelMagnitude = rb.velocity.magnitude;
             return;
         }
 
@@ -70,5 +79,14 @@ public class Enemy : Entity
 
         base.onHit(force);
         rb.AddForce(force, ForceMode2D.Impulse);
+        prevVelMagnitude = rb.velocity.magnitude;
+    }
+
+    public override void onDeath()
+    {
+        base.onDeath();
+        var iceCubes = Instantiate(iceCubesPrefab, transform.position, Quaternion.identity);
+        iceCubes.localScale = transform.localScale;
+        Destroy(gameObject);
     }
 }
