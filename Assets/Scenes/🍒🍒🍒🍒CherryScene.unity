@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldScroller: {fileID: 778576766}
   timerText: {fileID: 1939413391}
+  icyImageOverlay: {fileID: 960819257}
   gameSpeed: 1
   timeSlowFactor: 0.5
   timeSlowDuration: 5
@@ -997,6 +998,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5435954231777384970, guid: 2adc038b06abefb42a709acf9c8c9d0f, type: 3}
   m_PrefabInstance: {fileID: 691287594279676938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &960819257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5761916007107365829, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
+  m_PrefabInstance: {fileID: 2212168482537741922}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1178973001
 PrefabInstance:
@@ -1943,10 +1949,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer
       objectReference: {fileID: 0}
-    - target: {fileID: 4831056246510539193, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6960693619034964616, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1973,11 +1975,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6960693619034964616, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6960693619034964616, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6960693619034964616, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2009,11 +2011,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6960693619034964616, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6960693619034964616, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6960693619034964616, guid: 2c636c1ece60cbf4690a5cef0feb5833, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
