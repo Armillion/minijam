@@ -25,7 +25,6 @@ public class Enemy : Entity
         }
 
         currentWidth += direction * speed * Time.deltaTime;
-        Debug.Log(currentWidth);
 
         if(currentWidth > platformWidth || currentWidth < -platformWidth)
         {

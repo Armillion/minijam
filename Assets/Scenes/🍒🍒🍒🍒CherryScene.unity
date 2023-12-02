@@ -432,6 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 2359750685290737636, guid: 042293339a0288c4e9b6dbbddd1cb434, type: 3}
   enemyPrefab: {fileID: 7710096292037525304, guid: 5725063cf88ce6d4abe4a2f576ff4d6c, type: 3}
+  startingFloor: {fileID: 992940309}
   bounds: {x: 9, y: 7}
   platformWidthRange:
     min: 3
@@ -711,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731815833195511189, guid: 042293339a0288c4e9b6dbbddd1cb434, type: 3}
       propertyPath: m_Name
-      value: Platform
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

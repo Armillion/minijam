@@ -24,7 +24,7 @@ public class PlayerCntroller : MonoBehaviour
 
     void FixedUpdate()
     {
-        playerMovement.Move(horizontal * Time.fixedDeltaTime, false, jump);
+        playerMovement.Move(horizontal * Time.fixedUnscaledTime, false, jump);
         jump = false;
     }
 }

@@ -13,9 +13,6 @@ public class WorldScroller : MonoBehaviour {
     [SerializeField]
     Transform enemyPrefab;
 
-    [SerializeField]
-    Transform startingFloor;
-
     [SerializeField, Space]
     Vector2 bounds = new(10f, 10f);
 
@@ -28,6 +25,7 @@ public class WorldScroller : MonoBehaviour {
     [SerializeField, Range(0f, 1f)]
     float platformEnemySpawnChance = 0.2f;
 
+    [SerializeField]
     List<Transform> platforms = new();
 
     float platformSpawnTimer = 1f;
@@ -39,12 +37,10 @@ public class WorldScroller : MonoBehaviour {
             Destroy(this);
         else
             Instance = this;
-
-        platforms.Add(startingFloor);
     }
 
     void Update() {
-        platformSpawnTimer += Time.deltaTime * platformSpawnInterval * GameManager.GameSpeed;
+        platformSpawnTimer += Time.deltaTime * platformSpawnInterval;
 
         if (platformSpawnTimer >= 1f) {
             platformSpawnTimer = 0f;
@@ -68,7 +64,7 @@ public class WorldScroller : MonoBehaviour {
         List<Transform> platformsToRemove = new();
 
         foreach (var platform in platforms) {
-            platform.position += GameManager.GameSpeed * Time.deltaTime * Vector3.down;
+            platform.position += Time.deltaTime * Vector3.down;
 
             if (platform.position.y < -bounds.y - platform.localScale.y * 0.5f)
                 platformsToRemove.Add(platform);

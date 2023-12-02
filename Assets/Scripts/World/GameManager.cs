@@ -4,8 +4,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
 
-    public static float GameSpeed = 1f;
-
     public TextMeshProUGUI TimerText => timerText;
 
     [SerializeField]
@@ -13,6 +11,8 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField, Range(0f, 10f)]
     float gameSpeed = 1f;
+
+    float timer = 0f;
 
     void Awake() {
         if (Instance != null && Instance != this)
@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour {
     }
 
     void OnValidate() {
-        GameSpeed = gameSpeed;
+        Time.timeScale = gameSpeed;
+    }
+
+    void Update() {
+
+        timer += Time.deltaTime;
+        timerText.text = timer.ToString("F2");
     }
 }
