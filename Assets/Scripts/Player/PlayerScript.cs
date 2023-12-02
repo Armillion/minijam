@@ -20,7 +20,8 @@ public class PlayerScript : Entity
     
     public bool jump = false;
 
-    public GameObject gameOverScreen;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject pauseScreen;
 
     public override void onHit()
     {
@@ -55,6 +56,11 @@ public class PlayerScript : Entity
         {
             Melee();
         }
+
+        if(Input.GetButtonDown("Cancel"))
+        {
+            Pause();
+        }
     }
 
     void FixedUpdate()
@@ -85,5 +91,11 @@ public class PlayerScript : Entity
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + (playerMovement.m_FacingRight ? 1f : -1f) * new Vector3(attackRange.x * 0.5f, 0f, 0f), attackRange);
+    }
+
+    private void Pause()
+    {
+        Time.timeScale = 0f;
+        pauseScreen.SetActive(true);
     }
 }
