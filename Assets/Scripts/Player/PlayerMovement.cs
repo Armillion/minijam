@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void AnimationCheck()
 	{
-		if(m_Rigidbody2D.velocity.x > 0)
+		if(m_Rigidbody2D.velocity.x != 0)
 		{
 			legAnimator.SetBool("isRunning",true);
 		}
