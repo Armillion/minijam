@@ -88,6 +88,11 @@ public class PlayerScript : Entity
         }
     }
 
+    void animationCheck()
+    {
+
+    }
+
     void OnDrawGizmosSelected()
     {
         Vector3 mousePos = Input.mousePosition;

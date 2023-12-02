@@ -449,10 +449,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1900596449}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 268.90845, y: 126.21167}
-  m_SizeDelta: {x: 464.3044, y: 201.65009}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -279, y: -141}
+  m_SizeDelta: {x: 464.30444, y: 201.65015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727402451
 MonoBehaviour:
@@ -577,16 +577,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828386410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1900596449}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -401.55292, y: -217.58167}
-  m_SizeDelta: {x: 729.40967, y: 306.71802}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 412, y: 289}
+  m_SizeDelta: {x: 729.40967, y: 441.72375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &828386412
 MonoBehaviour:
@@ -601,14 +601,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 1233d6b6ba9540345ac4449252cbe73d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 89dce4aa8add7b045a53c539aa31ebcf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1133,6 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b446288dce92aa43913b762a8d71345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!223 &1908739306
 Canvas:
   m_ObjectHideFlags: 0
