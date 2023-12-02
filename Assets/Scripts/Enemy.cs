@@ -8,13 +8,17 @@ public class Enemy : Entity
     public float platformWidth = 0;             // determines for far an enemy can go
     float currentWidth = 0;                     // derermines our current position on the platform
     [SerializeField] private float speed = 10;  // how fast enemy moves
-    private int direction = 1;
+    private int direction = -1;
     private Rigidbody2D rb;
+
     public Collider2D attackChecker;
+
+    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -41,8 +45,7 @@ public class Enemy : Entity
         base.freeze();
         attackChecker.enabled = false;
 
-        if (TryGetComponent(out SpriteRenderer sr))
-            sr.color = Color.cyan;
+        animator.SetBool("isFrozen", true);
     }
 
     public override void onFall()
