@@ -7,6 +7,7 @@ public class PlayerScript : Entity
     // Class handles player specific operations
 
     [SerializeField] private int injuries = 0;
+    [SerializeField] private List<GameObject> injuriesUI;
 
     [SerializeField] Vector2 attackRange;
 
@@ -28,6 +29,16 @@ public class PlayerScript : Entity
         base.onHit();
 
         injuries++;
+        if(injuries - 1 <= injuriesUI.Count)
+        {
+            foreach(GameObject go in injuriesUI)
+            {
+                go.SetActive(false);
+            }
+            injuriesUI[injuries-1].SetActive(true);
+        }
+
+
         // apply knockback
         Vector3 lookAtPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane));
         int dir = transform.position.x > lookAtPosition.x ? -1 : 1;
