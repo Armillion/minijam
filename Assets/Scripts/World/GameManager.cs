@@ -48,8 +48,10 @@ public class GameManager : MonoBehaviour {
     IEnumerator SlowTimeRoutine() {
         isTimeSlowed = true;
         Time.timeScale = timeSlowFactor;
+        timerText.color = Color.cyan;
         yield return new WaitForSecondsRealtime(timeSlowDuration);
         isTimeSlowed = false;
         Time.timeScale = gameSpeed;
+        timerText.color = Color.black;
     }
 }
