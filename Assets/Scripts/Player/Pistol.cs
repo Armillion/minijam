@@ -35,7 +35,7 @@ public class Pistol : MonoBehaviour
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         angle *= Time.timeScale;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-       
+
         //shooting
         if(Input.GetButton("Fire1") && timer <= 0)
         {

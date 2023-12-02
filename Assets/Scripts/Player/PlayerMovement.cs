@@ -202,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
 		isKnockedback = true;
 		m_AirControl = false;
 		m_Grounded = false;
-        Vector3 targetVelocity = new Vector2(force, 10f);
+        Vector3 targetVelocity = new Vector2(force, 5f);
 		m_Rigidbody2D.velocity = targetVelocity;
 	}
 
