@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SlowTime() {
-        if (isTimeSlowed || timeSlowCooldown > 0f)
+        if (isTimeSlowed || cooldown > 0f)
             return;
 
         StartCoroutine(SlowTimeRoutine());

@@ -37,10 +37,10 @@ public class Enemy : Entity
             return;
         }
 
-        Vector2 vel = new Vector2(direction * speed * Time.deltaTime, rb.velocity.y);
+        Vector2 vel = new Vector2(direction * speed * Time.fixedUnscaledDeltaTime, rb.velocity.y);
         rb.velocity = vel;
 
-        currentWidth += direction * speed * Time.deltaTime;
+        currentWidth += direction * speed * Time.fixedUnscaledDeltaTime;
 
         if(currentWidth > platformWidth || currentWidth < -platformWidth)
         {
