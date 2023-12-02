@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField, Space, Min(0.1f)]
     float startCooldown = 5f;
 
-    float timer = 0f, cooldown = 0f;
+    public float Timer { get; set; }
+    
+    float cooldown = 0f;
 
     void Awake() {
         if (Instance != null && Instance != this)
@@ -42,9 +44,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        timer += Time.deltaTime;
+        Timer += Time.deltaTime;
         cooldown -= Time.deltaTime;
-        TimeSpan timeSpan = TimeSpan.FromSeconds(timer);
+        TimeSpan timeSpan = TimeSpan.FromSeconds(Timer);
         timerText.text = timeSpan.ToString(@"mm\:ss");
     }
 
