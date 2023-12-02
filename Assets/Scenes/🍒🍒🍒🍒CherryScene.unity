@@ -716,6 +716,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &524084023 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1754067712332389743, guid: e1012145e41f1434295cb7696ff039d1, type: 3}
+  m_PrefabInstance: {fileID: 1178973001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &582237523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1193,6 +1198,10 @@ PrefabInstance:
       propertyPath: pauseScreen
       value: 
       objectReference: {fileID: 1371270871}
+    - target: {fileID: 5279330281425488497, guid: e1012145e41f1434295cb7696ff039d1, type: 3}
+      propertyPath: bodyAnimator
+      value: 
+      objectReference: {fileID: 524084023}
     - target: {fileID: 5279330281425488497, guid: e1012145e41f1434295cb7696ff039d1, type: 3}
       propertyPath: attackRange.x
       value: 1.5

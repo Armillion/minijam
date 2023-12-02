@@ -23,6 +23,7 @@ public class PlayerScript : Entity
 
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] Animator bodyAnimator;
 
     public override void onHit()
     {
@@ -82,6 +83,8 @@ public class PlayerScript : Entity
 
     void Melee()
     {
+        bodyAnimator.SetTrigger("Melee");
+
         Vector3 mousePos = Input.mousePosition;
         Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
         bool facingRight = mousePos.x > objectPos.x;

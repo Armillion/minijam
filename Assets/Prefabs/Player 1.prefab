@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aea0d22bf8cceb449fd10abb06f8f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 500
+  m_JumpForce: 450
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -594,13 +594,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   injuries: 0
+  injuriesUI: []
   attackRange: {x: 1.5, y: 2.5}
   hammerForce: 10
   playerMovement: {fileID: 2573065123230960017}
   runSpeed: 40
   jump: 0
   gameOverScreen: {fileID: 530065880017397906, guid: e255c0e42d77802488a3d6ce88206345, type: 3}
-  pauseScreen: {fileID: 0}
+  pauseScreen: {fileID: 1068030662263748733, guid: db05fa9a4c51e4645b23cb857c23b601, type: 3}
+  bodyAnimator: {fileID: 1754067712332389743}
 --- !u!70 &5152914093436543635
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
