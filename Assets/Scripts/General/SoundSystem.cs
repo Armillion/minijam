@@ -11,7 +11,7 @@ public class SoundSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Random.Range(1,10) <= 2)
+        if(Random.Range(1,1200) <= 2)
         {
             clauses[3] = true;
         }
@@ -21,6 +21,7 @@ public class SoundSystem : MonoBehaviour
             if (clauses[i])
             {
                 audioSource.PlayOneShot(sounds[i]);
+                clauses[i] = false;
             }
         }
     }
