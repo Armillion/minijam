@@ -14,6 +14,9 @@ public class Pistol : MonoBehaviour
     public float cooldown = 1f;
     private float timer = 1f;
 
+    [SerializeField]
+    private SoundSystem ss;
+
     private void Start()
     {
         cam = Camera.main;
@@ -44,6 +47,7 @@ public class Pistol : MonoBehaviour
 
     void Shoot()
     {
+        ss.clauses[2] = true;
         Instantiate(projectile, trackPoint.position, transform.rotation);
         timer = cooldown;
     }

@@ -24,6 +24,8 @@ public class PlayerScript : Entity
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject pauseScreen;
 
+    [SerializeField] private SoundSystem ss;
+
     public override void onHit()
     {
         base.onHit();
@@ -31,6 +33,8 @@ public class PlayerScript : Entity
         injuries++;
         if(injuries - 1 <= injuriesUI.Count)
         {
+            ss.clauses[0] = true;
+
             foreach(GameObject go in injuriesUI)
             {
                 go.SetActive(false);

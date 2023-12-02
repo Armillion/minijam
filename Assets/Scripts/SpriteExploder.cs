@@ -9,7 +9,12 @@ public class SpriteExploder : MonoBehaviour {
     [SerializeField]
     float explosionForce = 1000f;
 
+    [SerializeField]
+    private SoundSystem ss;
+
     void Start() {
+        ss = GameObject.FindWithTag("Finish").GetComponent<SoundSystem>();
+        ss.clauses[1] = true;
         foreach (var spriteRB in spritePieces)
             spriteRB.AddForce(Random.insideUnitCircle * explosionForce, ForceMode2D.Impulse);
     }
