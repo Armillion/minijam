@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour {
     public TextMeshProUGUI TimerText => timerText;
 
     [SerializeField]
+    MonoBehaviour worldScroller;
+
+    [SerializeField]
     TextMeshProUGUI timerText;
 
     [SerializeField, Range(0f, 10f)]
@@ -17,15 +20,21 @@ public class GameManager : MonoBehaviour {
     [SerializeField, Min(0f)]
     float timeSlowFactor = 0.5f, timeSlowDuration = 1f, timeSlowCooldown = 1f;
 
-    float timer = 0f;
-
     public bool isTimeSlowed = false;
+
+    [SerializeField, Space, Min(0.1f)]
+    float startCooldown = 5f;
+
+    float timer = 0f, cooldown = 0f;
 
     void Awake() {
         if (Instance != null && Instance != this)
             Destroy(this);
         else
             Instance = this;
+
+        worldScroller.enabled = false;
+        StartCoroutine(StartCooldown());
     }
 
     void OnValidate() {
@@ -34,12 +43,13 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
         timer += Time.deltaTime;
+        cooldown -= Time.deltaTime;
         TimeSpan timeSpan = TimeSpan.FromSeconds(timer);
         timerText.text = timeSpan.ToString(@"mm\:ss");
     }
 
     public void SlowTime() {
-        if (isTimeSlowed)
+        if (isTimeSlowed || timeSlowCooldown > 0f)
             return;
 
         StartCoroutine(SlowTimeRoutine());
@@ -53,5 +63,11 @@ public class GameManager : MonoBehaviour {
         isTimeSlowed = false;
         Time.timeScale = gameSpeed;
         timerText.color = Color.black;
+        cooldown = timeSlowDuration;
+    }
+
+    IEnumerator StartCooldown() {
+        yield return new WaitForSeconds(startCooldown);
+        worldScroller.enabled = true;
     }
 }
