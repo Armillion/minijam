@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if(isKnockedback)
 		{
-			knockbackTimer += Time.unscaledDeltaTime;
+			knockbackTimer += Time.deltaTime;
 			m_AirControl = false;
 
 			if (knockbackTimer > 0.5f
