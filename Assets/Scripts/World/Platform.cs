@@ -23,8 +23,19 @@ public class Platform : MonoBehaviour {
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    #if UNITY_EDITOR
     void OnValidate() {
+        UnityEditor.EditorApplication.delayCall += OnValidateCallback;
+    }
+
+    void OnValidateCallback() {
+        if (this == null) {
+            UnityEditor.EditorApplication.delayCall -= OnValidateCallback;
+            return; // MissingRefException if managed in the editor - uses the overloaded Unity == operator.
+        }
+
         boxCollider = GetComponent<BoxCollider2D>();
         Size = size;
     }
+    #endif
 }

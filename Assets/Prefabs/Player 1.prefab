@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   injuries: 0
-  attackRange: {x: 0, y: 0}
+  attackRange: {x: 1.5, y: 2.5}
   hammerForce: 10
   playerMovement: {fileID: 2573065123230960017}
   runSpeed: 40
