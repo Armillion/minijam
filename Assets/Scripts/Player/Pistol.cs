@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PistolRotate : MonoBehaviour
+public class Pistol : MonoBehaviour
 {
     private Camera cam;
     public PlayerMovement pm;
 
     public GameObject projectile;
     public Transform trackPoint;
+
+    public float cooldown = 1f;
+    private float timer = 1f;
 
     private void Start()
     {
@@ -30,14 +33,17 @@ public class PistolRotate : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
        
         //shooting
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButton("Fire1") && timer <= 0)
         {
             Shoot();
         }
+
+        timer -= Time.deltaTime;
     }
 
     void Shoot()
     {
         Instantiate(projectile, trackPoint.position, transform.rotation);
+        timer = cooldown;
     }
 }

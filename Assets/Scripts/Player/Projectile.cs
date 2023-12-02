@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 9999999999999f;
     Rigidbody2D rb;
 
     private void Start()
@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 dir = new Vector2(speed*Time.deltaTime, 0);
-        dir *= transform.forward;
+        dir = transform.rotation * dir;
         rb.velocity = dir;
     }
 

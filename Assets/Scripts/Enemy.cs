@@ -10,6 +10,7 @@ public class Enemy : Entity
     [SerializeField] private float speed = 10;  // how fast enemy moves
     private int direction = 1;
     private Rigidbody2D rb;
+    public Collider2D attackChecker;
 
     private void Awake()
     {
@@ -23,6 +24,10 @@ public class Enemy : Entity
             Vector2 vel = new Vector2(direction * speed * Time.deltaTime, rb.velocity.y);
             rb.velocity = vel;
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
 
         currentWidth += direction * speed * Time.deltaTime;
 
@@ -31,6 +36,12 @@ public class Enemy : Entity
             direction *= -1;
             Flip();
         }
+    }
+
+    public override void freeze()
+    {
+        base.freeze();
+        attackChecker.enabled = false;
     }
 
     private void Flip()
