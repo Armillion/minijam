@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class UIFunctons : MonoBehaviour
 {
-    [SerializeField] private List<string> sceneNames;
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(sceneNames[0]);
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void Restart()
+    public void Restart(string name)
     {
-        SceneManager.LoadScene(sceneNames[1]);
+        SceneManager.LoadScene(name);
     }
 
     public void Quit()
