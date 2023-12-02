@@ -156,8 +156,13 @@ public class PlayerMovement : MonoBehaviour
         
 	}
 
+	public void knockback(float force)
+	{
+        Vector3 targetVelocity = new Vector2(force * 100f, 600f);
+		m_Rigidbody2D.velocity = targetVelocity;
+    }
 
-	private void Flip()
+    private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1963758848006963335}
   - component: {fileID: 186904782194730081}
   - component: {fileID: 2573065123230960017}
-  - component: {fileID: 926945448877718767}
+  - component: {fileID: 5279330281425488497}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02163601, y: 0.6999508}
+  m_Offset: {x: 0.0989632, y: 0.6999508}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.2976627, y: 2.9989526}
+  m_Size: {x: 2.7298741, y: 2.9989526}
   m_EdgeRadius: 0
 --- !u!50 &1963758848006963335
 Rigidbody2D:
@@ -260,7 +260,7 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &926945448877718767
+--- !u!114 &5279330281425488497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,9 +269,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8523878287379193331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50f2e5bbf025a3d4fbcc2328847d4d43, type: 3}
+  m_Script: {fileID: 11500000, guid: ed951d179fe5d8140ae0c394d4c7593b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFrozen: 0
+  injuries: 0
   playerMovement: {fileID: 2573065123230960017}
   runSpeed: 40
   jump: 0

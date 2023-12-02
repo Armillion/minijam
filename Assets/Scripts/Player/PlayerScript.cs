@@ -21,7 +21,10 @@ public class PlayerScript : Entity
 
         injuries++;
         // apply knockback
-        playerMovement.Move(horizontal * Time.fixedDeltaTime, false, jump);
+        Vector3 lookAtPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane));
+        int dir = transform.position.x > lookAtPosition.x ? -1 : 1;
+        float force = 100f * dir;
+        playerMovement.knockback(force * Time.fixedDeltaTime);
         jump = false;
     }
 
