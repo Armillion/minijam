@@ -55,7 +55,7 @@ public class WorldScroller : MonoBehaviour {
 
                 if (Random.value < platformEnemySpawnChance) {
                     var enemy = Instantiate(enemyPrefab, platform.position + 0.5f * platform.localScale.y * Vector3.up, Quaternion.identity, transform);
-                    enemy.GetComponent<Enemy>().platformWidth = platform.GetComponent<BoxCollider2D>().bounds.size.x * platform.localScale.x * 2f;
+                    enemy.GetComponent<Enemy>().platformWidth = platform.GetComponent<BoxCollider2D>().bounds.size.x * 8f;
                 }
 
                 if (availableSpace.Count == 0)

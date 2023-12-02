@@ -22,7 +22,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Debug.Log("aaaaaaaa");
         if (other.gameObject.TryGetComponent<Entity>(out var en))
         {
             en.freeze();
